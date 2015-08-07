@@ -9,40 +9,62 @@ The full workshop will last three days, with the structure as shown below:
 ### Day 1
 
 **09:00 AM-09:30 AM:** Intro and goals<sup>1</sup>  
-**09:30 AM-10:30 AM:** Overview of the web mapping workflow and stack<sup>2</sup>
-**10:30 AM-11:00 AM:** break  
+**09:30 AM-10:30 AM:** Overview of the web mapping workflow and stack<sup>2</sup>       
+**10:30 AM-11:00 AM:** _break_   
 **11:00 AM-12:30 PM:** Overview of the technologies of the stack<sup>3</sup>  
-**12:30 PM-02:00 PM:** lunch  
-**02:00 PM-03:30 PM:** Demonstration/dissection of mapping apps<sup>4</sup>
-**03:30 PM-04:00 PM:** break
+**12:30 PM-02:00 PM:** _lunch_  
+**02:00 PM-03:30 PM:** Demonstration/dissection of mapping apps<sup>4</sup>     
+**03:30 PM-04:00 PM:** _break_         
 **04:00 PM-05:30 PM:** Computer preparation, installation of software<sup>5</sup>
 
 <sup>1</sup> - Who we are and what we want to achieve   
 <sup>2</sup> - How to go from data to a sharable URL  
 <sup>3</sup> - Introduce the variety of technologies that can be used in each piece of the stack (jQuery vs. an MVC, different backends and why you might use each)     
 <sup>4</sup> - Demonstrate mapping apps, and also introduce Chrome dev tools for dissecting and debugging. After a couple of examples, point the class to the URL of a mapping app and have them figure out which technology it uses and how it is assembled.       
-<sup>5</sup> - Nodejs, PostGIS, git, Github, environment, setting up a repository
+<sup>5</sup> - Nodejs, PostGIS, git, Github, environment, setting up a repository, QGIS, GDAL
 
 
 ### Day 2
 
-**09:00 AM-10:30 AM:** Querying for data  
-**10:30 AM-11:00 AM:** break  
-**11:00 AM-12:30 PM:** Building a web app  
-**12:30 PM-02:00 PM:** lunch  
-**02:00 PM-03:30 PM:** Creating APIs  
-**03:30 PM-04:00 PM:** break  
-**04:00 PM-05:30 PM:** Retooling the web app to work with APIs  
+**09:00 AM-10:30 AM:** Data acquisition<sup>1</sup>  
+**10:30 AM-11:00 AM:** _break_  
+**11:00 AM-12:30 PM:** Data manipulation<sup>2</sup>      
+**12:30 PM-02:00 PM:** _lunch_  
+**02:00 PM-03:30 PM:** Data storage<sup>3</sup>  
+**03:30 PM-04:00 PM:** _break_  
+**04:00 PM-05:30 PM:** Legal considerations and hurdles of data<sup>4</sup> 
+
+<sup>1</sup> - Where to find data    
+<sup>2</sup> - The basics of ETL    
+<sup>3</sup> - Choosing the correct storage method     
+<sup>4</sup> - How to not get in trouble   
+
 
 ### Day 3
 
-**09:00 AM-10:30 AM:** Building a phone app  
-**10:30 AM-11:00 AM:** break  
-**11:00 AM-12:30 PM:** Building a phone app  
-**12:30 PM-02:00 PM:** lunch  
-**02:00 PM-03:30 PM:** Legal hurdles  
-**03:30 PM-04:00 PM:** break  
+**09:00 AM-10:30 AM:** Filtering and querying data<sup>1</sup>  
+**10:30 AM-11:00 AM:** _break_   
+**11:00 AM-12:30 PM:** Building a web map<sup>2</sup>  
+**12:30 PM-02:00 PM:** _lunch_  
+**02:00 PM-03:30 PM:** Creating APIs<sup>3</sup>  
+**03:30 PM-04:00 PM:** _break_   
+**04:00 PM-05:30 PM:** Retooling the web app to work with APIs<sup>4</sup>  
+
+<sup>2</sup> - A "hello world" web map, three ways  
+<sup>3</sup> - Why you don't always want to use static files    
+<sup>4</sup> - The basics of AJAX
+
+### Day 4
+
+**09:00 AM-10:30 AM:** Building a phone app<sup>1</sup>  
+**10:30 AM-11:00 AM:** _break_  
+**11:00 AM-12:30 PM:** Building a phone app<sup>1</sup>  
+**12:30 PM-02:00 PM:** _lunch_  
+**02:00 PM-03:30 PM:** Building a phone app<sup>1</sup>   
+**03:30 PM-04:00 PM:** _break_  
 **04:00 PM-05:30 PM:** Working in the open  
+
+<sup>1</sup> - Using Ionic to create cross platform mapping apps with open source web technologies.
 
 ## Prerequisites
 
