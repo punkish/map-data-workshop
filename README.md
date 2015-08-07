@@ -6,36 +6,36 @@ This workshop will provide an overview of the current state of mapping technolog
 
 The full workshop will last three days, with the structure as shown below:
 
-**Day 1**
+### Day 1
 
-09:00 AM-09:30 AM: Intro with goals
-09:30 AM-10:30 AM: Overview of the current technologies
-10:30 AM-11:00 AM: break
-11:00 AM-12:30 PM: Demonstration of apps
-12:30 PM-02:00 PM: lunch
-02:00 PM-03:30 PM: Computer preparation, installation of software
-03:30 PM-04:00 PM: break
-04:00 PM-05:30 PM: Loading databases
+**09:00 AM-09:30 AM:** Intro with goals  
+**09:30 AM-10:30 AM:** Overview of the current technologies  
+**10:30 AM-11:00 AM:** break  
+**11:00 AM-12:30 PM:** Demonstration of apps  
+**12:30 PM-02:00 PM:** lunch  
+**02:00 PM-03:30 PM:** Computer preparation, installation of software  
+**03:30 PM-04:00 PM:** break  
+**04:00 PM-05:30 PM:** Loading databases  
 
-**Day 2**
+### Day 2
 
-09:00 AM-10:30 AM: Querying for data
-10:30 AM-11:00 AM: break
-11:00 AM-12:30 PM: Building a web app
-12:30 PM-02:00 PM: lunch
-02:00 PM-03:30 PM: Creating APIs
-03:30 PM-04:00 PM: break
-04:00 PM-05:30 PM: Retooling the web app to work with APIs
+**09:00 AM-10:30 AM:** Querying for data  
+**10:30 AM-11:00 AM:** break  
+**11:00 AM-12:30 PM:** Building a web app  
+**12:30 PM-02:00 PM:** lunch  
+**02:00 PM-03:30 PM:** Creating APIs  
+**03:30 PM-04:00 PM:** break  
+**04:00 PM-05:30 PM:** Retooling the web app to work with APIs  
 
-**Day 3**
+### Day 3
 
-09:00 AM-10:30 AM: Building a phone app
-10:30 AM-11:00 AM: break
-11:00 AM-12:30 PM: Building a phone app
-12:30 PM-02:00 PM: lunch
-02:00 PM-03:30 PM: Legal hurdles
-03:30 PM-04:00 PM: break
-04:00 PM-05:30 PM: Working in the open
+**09:00 AM-10:30 AM:** Building a phone app  
+**10:30 AM-11:00 AM:** break  
+**11:00 AM-12:30 PM:** Building a phone app  
+**12:30 PM-02:00 PM:** lunch  
+**02:00 PM-03:30 PM:** Legal hurdles  
+**03:30 PM-04:00 PM:** break  
+**04:00 PM-05:30 PM:** Working in the open  
 
 ## Prerequisites
 
