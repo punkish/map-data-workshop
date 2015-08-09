@@ -18,10 +18,6 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 1: Introduction
 
-<style>
-table {width: 100%; min-width: 400px; max-width: 960px;}
-</style>
-
 <table>
 	<thead>
 		<tr>
