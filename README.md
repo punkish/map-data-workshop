@@ -8,30 +8,23 @@ The full workshop will last three days, with the structure as shown below:
 
 ### Day 1
 
-Time                | Activity
---------------------|-----------------------------
-09:00 AM-09:30 AM   |Intro and goals
-                    |Who we are and what we want to achieve  
-09:30 AM-10:30 AM   |Overview of the web mapping workflow and stack  
-                    |How to go from data to a sharable URL     
-10:30 AM-11:00 AM   |*break*   
-11:00 AM-12:30 PM   |Overview of the technologies of the stack
-                    |Introduce the variety of technologies that can 
-                    |be used in each piece of the stack (jQuery vs.
-                    |an MVC, different backends and why you might
-                    |use each)
-12:30 PM-02:00 PM   |*lunch*  
-02:00 PM-03:30 PM   |Demonstration/dissection of mapping apps 
-                    |Demonstrate mapping apps, and also introduce
-                    |Chrome dev tools for dissecting and
-                    |debugging. After a couple of examples, point
-                    |the class to the URL of a mapping app and
-                    |have them figure out which technology it
-                    |uses and how it is assembled.    
-03:30 PM-04:00 PM   |*break*         
-04:00 PM-05:30 PM   |Computer preparation, installation of software
-                    |Nodejs, PostGIS, git, Github, environment, 
-                    |setting up a repository, QGIS, GDAL
+<table>
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Activity</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>09:00 AM-09:30 AM</td>
+			<td>Intro and goals<br>
+				<i>Who we are and what we want to achieve</i>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 
 <!--
 <sup>1</sup> - Who we are and what we want to achieve  
