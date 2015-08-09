@@ -18,10 +18,14 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 1: Introduction
 
-<table width="100%">
+<style>
+table {width: 100%; min-width: 400px; max-width: 960px;}
+</style>
+
+<table>
 	<thead>
 		<tr>
-			<th>Time</th>
+			<th width="30%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -73,10 +77,10 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 2: Working Collaboratively
 
-<table width="100%">
+<table>
 	<thead>
 		<tr>
-			<th width="20%">Time</th>
+			<th width="30%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -122,10 +126,10 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 3: Data, data, data
 
-<table width="100%">
+<table>
 	<thead>
 		<tr>
-			<th width="20%">Time</th>
+			<th width="30%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -171,10 +175,10 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 4: Web Apps
 
-<table width="100%">
+<table>
 	<thead>
 		<tr>
-			<th width="20%">Time</th>
+			<th width="30%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -220,10 +224,10 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 5: Mobile Apps
 
-<table width="100%">
+<table>
 	<thead>
 		<tr>
-			<th width="20%">Time</th>
+			<th width="30%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
