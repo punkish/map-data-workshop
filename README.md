@@ -2,11 +2,11 @@
 
 ## Objectives
 
-This workshop will provide an overview of the current state of mapping technologies, teach the basics of data collection, management, and dissemination including building databases, APIs, and applications, and through this process, the attendees will also learn about the legal hurdles that have be overcome to access and reuse data, and the steps they can take to minimize or eliminate such hurdles.
+This workshop will provide an overview of the current state of mapping technologies, teach the basics of data collection, management, and dissemination including building databases, APIs, and applications for education and citizen science. Additionally, by fully understanding what makes today's applications do their magic, the attendees will also learn about the legal hurdles that have to be overcome to access and reuse data, and the steps they can take to minimize or eliminate such hurdles.
 
 ## Learner Level
 
-This is an intermediate-to-advanced workshop. It will introduce and take you through advanced concepts in data acquisition, management and use, and also legal aspects (open source vs. proprietary). Call it **intermediate** or **advanced**, it certainly is not a **beginner** workshop. *All* users will be required to have their own laptops and familiarity with Unix-style commands, console, and JavaScript. We don't want to classify the workshop as **advanced** because the apps you will build will not be suitable for launching a company and becoming a millionaire. However, you will certainly learn enough to build your own apps for education and citizen science purposes.
+This is an intermediate-to-advanced workshop. It will introduce and take you through advanced concepts in data acquisition, management and use, and also legal aspects (open source vs. proprietary). Call it *intermediate* or *advanced*, it certainly is not a *beginner* workshop. *All* users will be required to have their own laptops and familiarity with Unix-style commands, console, and JavaScript. We don't want to classify the workshop as *advanced* because the apps you will build will not be suitable for launching a company and becoming a millionaire. However, you will certainly learn enough to build your own apps for **education** and **citizen science** purposes.
 
 ## Goal
 
@@ -18,7 +18,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 1: Introduction
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -73,7 +73,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 2: Working Collaboratively
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -122,7 +122,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 3: Data, data, data
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -171,7 +171,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 4: Web Apps
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -220,7 +220,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 5: Mobile Apps
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Time</th>
@@ -231,7 +231,7 @@ The full workshop will last five days, with the structure as shown below:
 		<tr>
 			<td>09:00 AM-10:30 AM</td>
 			<td>Building a phone app<br>
-				<i>Using [Ionic Framework](http://ionicframework.com) to create cross platform mapping apps with open source web technologies.</i>
+				<i>Using <a href="http://ionicframework.com" target="_blank">Ionic Framework</a> to create cross platform mapping apps with open source web technologies.</i>
 			</td>
 		</tr>
 		<tr>
@@ -262,8 +262,6 @@ The full workshop will last five days, with the structure as shown below:
 		</tr>
 	</tbody>
 </table>
-
-<sup>1</sup> - 
 
 ## Prerequisites
 
