@@ -76,7 +76,7 @@ The full workshop will last five days, with the structure as shown below:
 <table width="100%">
 	<thead>
 		<tr>
-			<th>Time</th>
+			<th width="20%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -125,7 +125,7 @@ The full workshop will last five days, with the structure as shown below:
 <table width="100%">
 	<thead>
 		<tr>
-			<th>Time</th>
+			<th width="20%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -174,7 +174,7 @@ The full workshop will last five days, with the structure as shown below:
 <table width="100%">
 	<thead>
 		<tr>
-			<th>Time</th>
+			<th width="20%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
@@ -223,7 +223,7 @@ The full workshop will last five days, with the structure as shown below:
 <table width="100%">
 	<thead>
 		<tr>
-			<th>Time</th>
+			<th width="20%">Time</th>
 			<th>Activity</th>
 		</tr>
 	</thead>
