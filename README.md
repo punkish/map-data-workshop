@@ -91,7 +91,7 @@ The full workshop will last five days, with the structure as shown below:
 		<tr>
 			<td>04:00 PM-05:30 PM</td>
 			<td>Technologies behind a mapping app<br>
-				<i>Computer preparation, installation of software nodejs, PostGIS, git, Github, environment, setting up a repository, QGIS, GDAL</i>
+				<i>Computer preparation, installation of software nodejs, <a href='http://postgis.org' target='_blank'>PostGIS</a>, <a href='http://www.git-scm.com' target='_blank'>git</a>, <a href='http://github.com' target='_blank'>Github</a>, environment, setting up a repository, <a href='http://qgis.org' target='_blank'>QGIS</a>, <a href='http://gdal.org' target='_blank'>GDAL</a></i>
 			</td>
 		</tr>
 	</tbody>
@@ -120,7 +120,7 @@ The full workshop will last five days, with the structure as shown below:
 		<tr>
 			<td>11:00 AM-12:30 PM</td>
 			<td>Asking questions, finding answers<br>
-				<i>Stackoverflow, mailing lists</i>
+				<i><a href='http://stackoverflow.com' target='_blank'>Stackoverflow</a>, mailing lists</i>
 			</td>
 		</tr>
 		<tr>
@@ -283,7 +283,7 @@ The full workshop will last five days, with the structure as shown below:
 		<tr>
 			<td>04:00 PM-05:30 PM</td>
 			<td>URIs matter<br>
-				<i>bookmark, give credit, cite, return, all possible only because of the URI</i>
+				<i>bookmark, give credit, cite, return, all of these are possible only because of the URI</i>
 			</td>
 		</tr>
 	</tbody>
