@@ -8,15 +8,15 @@ This workshop will provide an overview of the current state of mapping technolog
 
 ## Learner Level
 
-This is a hands-on intermediate-to-advanced workshop to learn how to create map-based data analysis and visualization applications. It will introduce and take you through advanced concepts in data acquisition, management and use, and also legal aspects (open source vs. proprietary), but we don't want to classify the workshop as *advanced* because the apps you will build will not be suitable for launching a company and becoming a millionaire. However, you will certainly learn enough to build your own apps for **education** and **citizen science** purposes.
+This is a hands-on intermediate-to-advanced workshop to learn how to create map-based data analysis and visualization applications. It will introduce and take you through advanced concepts in data acquisition, management and use, and also legal aspects (open source vs. proprietary), but we don't want to classify the workshop as *advanced* because the apps you will build will not be suitable for launching a company and becoming a millionaire. However, you will certainly learn enough to build your own apps for **education** and **citizen science**. This workshop is not suitable for you if you don't have any interest in learning useful programming. It is a workshop for you if you are interested in using software tools to build tools and manage and analyze data, and are also interested in the non-technical factors that may affect your work both negatively or positively.
 
 ## Prerequisites
 
 #### Participants
 
-+ Have own laptop with `nodejs`, `npm`, and a code editor of your choice installed (if you have a Mac, you need to have Xcode installed)
++ Have own laptop with [Node.js](http://nodejs.org), [npm](http://npmjs.com), the node package manager, and a code editor of your choice installed (if you have a Mac, you need to have [Xcode](https://developer.apple.com/xcode/) installed)
 + Familiarity with Unix-style commands
-+ Working knowledge of JavaScript, server-side a plus
++ Working knowledge of JavaScript, server-side/asynchronous programming a plus
 + Knowledge of HTML and CSS
 + Desire to build open source web mapping applications
 
@@ -30,7 +30,8 @@ This is a hands-on intermediate-to-advanced workshop to learn how to create map-
 
 Our objective is to not just teach you about the technology and workflow but also the associated sociocultural and legal issues, and in that process, hopefully help you appreciate why choosing the right license, being open, and collaborating with others is very important when working on the web. By the end of the workshop, participants should:
 
-+ Understand how to create an interactive map from various data sources
++ Learn how to find free and open geo data
++ Understand how to create an interactive map from data
 + Be able to debug a web mapping application
 + Know how to choose a data dissemination method
 + Be able to conceptualize a full stack web application
@@ -38,13 +39,17 @@ Our objective is to not just teach you about the technology and workflow but als
 + Know how to choose a license
 + Become familiar with the legal issues surrounding data acquisition, manipulation, and use
 
+### Why JavaScript?
+
+As you can see from this README, we will be using many different technologies. But the glue language for all these technologies will be primarily JavaScript. We have chosen `js` because we want to avoid language wars (none of us believe that any one language can do everything), js is present on everyone's computer because it is the primarily programming language in the browser, and learning server-side js can help one do both server and client work with the same language. But, more than anything, js is a modern, capable, fast language that is fun to develop with, and has a very rich community of developers who contribute reusable code in the form of packages that can be easily installed using `npm`.
+
 ## Duration
 
-The full workshop will last five days, with the structure as shown below:
+The full workshop will last five days. Each day will be a mix of mainly technical subject matter supplemented with relevant social/cultural/legal aspects at the end of the day. The structure of the workshop is as shown below:
 
 ### Day 1: Introduction
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th width="30%">Time</th>
@@ -99,7 +104,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 2: Working Collaboratively
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th width="30%">Time</th>
@@ -148,7 +153,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 3: All about data
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th width="30%">Time</th>
@@ -197,7 +202,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 4: Web Apps
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th width="30%">Time</th>
@@ -246,7 +251,7 @@ The full workshop will last five days, with the structure as shown below:
 
 ### Day 5: Mobile Apps
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th width="30%">Time</th>
