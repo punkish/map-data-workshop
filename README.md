@@ -1,4 +1,4 @@
-# map-data-workshop
+# Data and Knowledge Cartography
 
 A workshop leading up to [epiSTEME 6](http://episteme6.hbcse.tifr.res.in/) in Mumbai
 
@@ -6,7 +6,7 @@ A workshop leading up to [epiSTEME 6](http://episteme6.hbcse.tifr.res.in/) in Mu
 
 This workshop will provide an overview of the current state of mapping technologies, teach the basics of data collection, management, and dissemination including building databases, APIs, and applications for education and citizen science. Additionally, by fully understanding what makes today’s applications do their magic, the attendees will also learn about the sociocultural and legal issues that are important in determining who can access and reuse data, and the steps that will minimize or eliminate hurdles.
 
-## Learner Level
+## Who can attend?
 
 This is a hands-on intermediate-to-advanced workshop to learn how to create map-based data analysis and visualization applications. It will introduce and take you through advanced concepts in data acquisition, management and use, and also legal aspects (open source vs. proprietary), but we don't want to classify the workshop as *advanced* because the apps you will build will not be suitable for launching a company and becoming a millionaire. However, you will certainly learn enough to build your own apps for **education** and **citizen science**. This workshop is not suitable for you if you don't have any interest in learning useful programming. It is a workshop for you if you are interested in using software tools to build tools and manage and analyze data, and are also interested in the non-technical factors that may affect your work both negatively or positively.
 
