@@ -1,4 +1,4 @@
-# Data and Knowledge Cartography
+# Mapping Data and Knowledge for Citizen Science
 
 Please see the [schedule of workshops](http://punkish.github.io/map-data-workshop/schedule.html).
 
