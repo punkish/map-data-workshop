@@ -1,6 +1,6 @@
 # Data and Knowledge Cartography
 
-Please see the schedule of workshops.
+Please see the [schedule of workshops](http://punkish.github.io/map-data-knowledge/schedule.html).
 
 ## Goal
 
