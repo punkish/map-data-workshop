@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+	{
+	  "type": "Feature",
+	  "geometry": {
+		"type": "Point",
+		"coordinates": [
+		  72.9281007,
+		  19.0421842
+		]
+	  },
+	  "properties": {
+		"marker-symbol": "marker",
+		"name": "Homi Bhabha Centre for Science Education",
+		"address": "V. N. Purav Marg, Mankhurd, Mumbai, 400088 INDIA"
+	  }
+	}
+  ]
+}

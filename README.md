@@ -1,6 +1,6 @@
 # Data and Knowledge Cartography
 
-A workshop leading up to [epiSTEME 6](http://episteme6.hbcse.tifr.res.in/) in Mumbai
+Please see the schedule of workshops.
 
 ## Goal
 
