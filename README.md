@@ -1,6 +1,6 @@
 # Mapping Data and Knowledge for Citizen Science
 
-Please see the [schedule of workshops](http://punkish.github.io/map-data-workshop/schedule.html).
+Please see the [website](http://punkish.github.io/map-data-workshop) and [schedule of workshops](http://punkish.github.io/map-data-workshop/schedule.html).
 
 ## Goal
 
