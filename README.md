@@ -138,7 +138,7 @@ The full workshop will last five days. Each day will be a mix of mainly technica
 		<tr>
 			<td>02:00 PM-03:30 PM</td>
 			<td>Project websites<br>
-				<i>Telling the world about your work</i>
+				<i>Telling the world about your work using Github pages</i>
 			</td>
 		</tr>
 		<tr>
@@ -264,8 +264,8 @@ The full workshop will last five days. Each day will be a mix of mainly technica
 	<tbody>
 		<tr>
 			<td>09:00 AM-10:30 AM</td>
-			<td>Building a phone app<br>
-				<i>Using <a href="http://ionicframework.com" target="_blank">Ionic Framework</a> to create cross-platform mapping apps with open source web technologies.</i>
+			<td>Building a mapping application<br>
+				<i>Using open source web technologies to create a responsive web application.</i>
 			</td>
 		</tr>
 		<tr>
@@ -274,7 +274,7 @@ The full workshop will last five days. Each day will be a mix of mainly technica
 		</tr>
 		<tr>
 			<td>11:00 AM-12:30 PM</td>
-			<td>Building a phone app… <i>contd.</i></td>
+			<td>Building a mapping app… <i>contd.</i></td>
 		</tr>
 		<tr>
 			<td>12:30 PM-02:00 PM</td>
@@ -282,7 +282,7 @@ The full workshop will last five days. Each day will be a mix of mainly technica
 		</tr>
 		<tr>
 			<td>02:00 PM-03:30 PM</td>
-			<td>Building a phone app… <i>contd.</i></td>
+			<td>Building a mapping app… <i>contd.</i></td>
 		</tr>
 		<tr>
 			<td>03:30 PM-04:00 PM</td>
