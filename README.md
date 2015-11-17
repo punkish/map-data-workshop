@@ -296,3 +296,25 @@ The full workshop will last five days. Each day will be a mix of mainly technica
 		</tr>
 	</tbody>
 </table>
+
+## Registration 
+
+Prior registration is required to participate in the workshop. If you are interested You can register for the event by sending an email to mapworkshop AT gnowledge DOT org by providing:
+
+ - Your full name:
+ - Occupation,:
+ - Affiliation:
+ - Email:
+ - Accommodation in the Hostel required:   yes/no
+ - Skills: please mention the skills related to the workshop topic. 
+
+You are required to bring your laptop.  Internet access will be provided. 
+
+## Fee 
+
+There is no registration Fee for the workshop.  However, you have to pay for the guest house accommodation at reduced rates.  The rates for a single AC room is Rs.400/- and shared will be Rs.200/-.  And for Non AC room it will be Rs.150/- for single, and Rs.75/- for shared. 
+
+Canteen will provide Breakfast, Lunch and Dinner, and Tea/Coffee/Snacks during the day.  The participants will have to pay at the counter.  
+
+If you have any further questions, please write to mapworkshop AT gnowledge DOT org 
+Please write a small note on the skill set you may have, particularly if you have experience.  This will help us to group for teams and also define the scope of the workshop. 
