@@ -2,6 +2,21 @@
 
 Please see the [website](http://punkish.github.io/map-data-workshop) and [schedule of workshops](http://punkish.github.io/map-data-workshop/schedule.html).
 
+## Contents
++ [Goal](#goal)
++ [Who can attend](#who-can-attend)
++ [Prerequisites](#prerequisites)
++ [Objectives](#objective)
++ [Schedule](#duration)
+   - [Day 1 - Introduction](#day-1:-introduction)
+   - [Day 2 - Working Collaboratively](#day-2:-working-collaboratively)
+   - [Day 3 - All about data](#day-3:-all-about-data)
+   - [Day 4 - Web apps](#day-4:-web-apps)
+   - [Day 5 - Mobile apps](#day-5:-mobile-apps)
+   
++ [Registration](#registration)
++ [Fee](#fee)
+
 ## Goal
 
 This workshop will provide an overview of the current state of mapping technologies, teach the basics of data collection, management, and dissemination including building databases, APIs, and applications for education and citizen science. Additionally, by fully understanding what makes today’s applications do their magic, the attendees will also learn about the sociocultural and legal issues that are important in determining who can access and reuse data, and the steps that will minimize or eliminate hurdles.
