@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width" charset="UTF-8">
+  <title>(Almost) Simplest mapping app</title>
+  <link rel="stylesheet" href="http://maps.metastudio.org/lib/leaflet/leaflet.min.css" />
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    #map {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script src="http://maps.metastudio.org/lib/leaflet/leaflet.js"></script>
+  <script src="js/pouchdb-5.1.0.min.js"></script>
+  <script>
+  /*
+   * Lesson 2
+   */
+
+  // Initialize the map and set the view
+  var map = L.map('map').setView([19, 72.8], 11);
+
+  // Function to create a unique UUID for each point
+  function getID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = crypto.getRandomValues(new Uint8Array(1))[0]%16|0, v = c == 'x' ?
+        r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  }
+
+  // Initialize the local database
+  var db = new PouchDB('cse');
+
+  // Create a variable to keep track of our points. Each key of this
+  // object is a marker UUID
+  var markers = {}
+
+  // When we load the page, check if we have any existing points
+  db.allDocs().then(function(result) {
+
+    // For each point…
+    result.rows.forEach(function(point) {
+
+      // Retrieve the information from the local database…
+      db.get(point.id).then(function(coords) {
+
+        // and add a marker to map
+        markers[point.id] = L.marker([coords.lat, coords.lng])
+          .bindPopup(
+            'My location is ' + coords.lat + ', ' + coords.lng +
+            '<br><button onclick=removeMarker("' + point.id +
+            '")>Remove</button>'
+          )
+          .addTo(map);
+      });
+
+    });
+  });
+
+  // add tile layer
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+  // Create an event on right click / long press
+  map.on('contextmenu', function(event) {
+    var lat = event.latlng.lat.toFixed(6);
+    var lng = event.latlng.lng.toFixed(6);
+    var id = getID();
+
+    // Add a new marker to map
+    markers[id] = L.marker([event.latlng.lat, event.latlng.lng])
+      .bindPopup('You added a point at ' + lat + ', ' + lng + '!  <br><button onclick=removeMarker("' + id + '")>Remove</button>')
+      .addTo(map)
+      .openPopup();
+
+    // Save it to our local database
+    db.put({
+      _id: id,
+      lat: lat,
+      lng: lng
+    });
+
+  });
+
+  // Function to handle removing markers
+  function removeMarker(id) {
+    // Remove the marker from the map
+    map.removeLayer(markers[id]);
+
+    // Remove the point from the database
+    db.get(id).then(function(doc) {
+      return db.remove(doc);
+    }).then(function (result) {
+      // handle result
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
+  </script>
+
+</body>
+<html>
