@@ -33,32 +33,11 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-# movies and images #
-#####################
-*.jpg
-*.JPG
-*.gif
-*.GIF
-*.png
-*.PNG
-*.pxm
-*.PXM
-*.mov
-*.MOV
-*.m4v
-*.M4V
-*.ogv
-*.OGV
-*.webm
-*.WEBM
-*.mp4
-*.MP4
-
-# no node_modules #
-###################
+# node_modules #
+################
 node_modules/
 
 # no sensitive data #
 #####################
-websocket-map-sync/credentials.js
+credentials.js
 
