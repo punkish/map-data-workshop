@@ -1,0 +1,17 @@
+{
+  "name": "tileserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John J Czaplewski <jczaplew@gmail.com>",
+  "license": "CC0",
+  "dependencies": {
+    "tilestrata": "^2.0.1",
+    "tilestrata-dependency": "^0.4.1",
+    "tilestrata-disk": "^0.5.0",
+    "tilestrata-mapnik": "^0.3.0"
+  }
+}
