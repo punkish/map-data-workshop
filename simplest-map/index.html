@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width" charset="UTF-8">
   <title>Simplest mapping app</title>
-  <link rel="stylesheet" href="http://maps.metastudio.org/lib/leaflet/leaflet.min.css" />
+  <link rel="stylesheet" href="http://maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.min.css" />
   <style>
     body {
       padding:0;
@@ -20,7 +20,7 @@
 
   <div id="map"></div>
 
-  <script src="http://maps.metastudio.org/lib/leaflet/leaflet.js"></script>
+  <script src="http://maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.js"></script>
   <script>
     /*
      * Lesson 1
@@ -32,22 +32,6 @@
     // add tile layer
     L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    var pressTimer;
-
-    map.on('mouseup, drag', function(event) {
-      clearTimeout(pressTimer);
-      // Clear timeout
-      return false;
-    });
-
-    map.on('mousedown', function(event) {
-      pressTimer = window.setTimeout(function() {
-        var marker = L.marker([event.latlng.lat, event.latlng.lng])
-          .bindPopup('You added a point at ' + event.latlng.lat + ', ' + event.latlng.lng + '!')
-          .addTo(map);
-      }, 700)
-      return false;
-    });
   </script>
 
 </body>
