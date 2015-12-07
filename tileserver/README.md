@@ -10,7 +10,10 @@ Tiles will then be available at `http://localhost:8080/basemap/{z}/{x}/{y}/tile.
 
 #### To manually build the tile styles
 
-First download the shapefiles that we need and install `carto` globally:
+*Assumes you have Postgresql, osm2pgsql, git, and curl installed. Will also download and import the
+Mumbai metro extract.*
+
+First download the Mumbai metro extract, shapefiles that we need, and install `carto` globally:
 ````
 ./setup.sh
 sudo npm install -g carto
