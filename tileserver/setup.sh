@@ -1,3 +1,9 @@
+createdb -U postgres osm
+psql -U postgres osm -c "CREATE EXTENSION postgis;"
+
+curl "https://s3.amazonaws.com/metro-extracts.mapzen.com/mumbai_india.osm.pbf" -o mumbai_india.osm.pbf
+osm2pgsql -s -U postgres -d osm mumbai_india.osm.pbf
+
 git clone https://github.com/mapbox/osm-bright.git
 curl -o simplified_land_polygons.zip "http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip"
 curl -o land_polygons.zip "http://data.openstreetmapdata.com/land-polygons-split-3857.zip"
