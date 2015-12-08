@@ -15,7 +15,7 @@ Also see the manual style build instructions
 node server.js
 ````
 
-Tiles will then be available at `http://localhost:8080/basemap/{z}/{x}/{y}/tile.png`, or whatever port is provided.
+Tiles will then be available at `http://localhost:8080/tiles/basemap/{z}/{x}/{y}/tile.png`, or whatever port is provided.
 
 ## Use
 To use the tiles in Leaflet:
