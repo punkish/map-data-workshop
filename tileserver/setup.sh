@@ -18,3 +18,10 @@ unzip ne_places.zip -d shp/ne_places
 rm simplified_land_polygons.zip
 rm land_polygons.zip
 rm ne_places.zip
+
+curl -o open-sans.zip "http://www.fontsquirrel.com/fonts/download/open-sans"
+unzip open-sans.zip -d open-sans
+mv -f open-sans /usr/share/fonts/truetype/
+rm open-sans.zip
+
+sudo fc-cache -f -v
