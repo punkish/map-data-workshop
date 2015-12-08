@@ -1,5 +1,8 @@
 # Tileserver demo
 
+Download an OpenStreetMap extract of Mumbai, put it into a PostGIS database, customize the OSM-Bright style
+for our needs, and run a tile server that caches tiles to disk with Tilestrata.
+
 ## Setup
 ````
 npm install
@@ -12,7 +15,7 @@ Also see the manual style build instructions
 node server.js
 ````
 
-Tiles will then be available at `http://localhost:8080/basemap/{z}/{x}/{y}/tile.png`
+Tiles will then be available at `http://localhost:8080/basemap/{z}/{x}/{y}/tile.png`, or whatever port is provided.
 
 
 #### To manually build the tile styles

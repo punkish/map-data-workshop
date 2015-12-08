@@ -6,7 +6,7 @@ var app = express();
 var strata = tilestrata();
 
 
-// define layers
+// Define our basemap layer
 strata.layer('basemap')
     .route('tile.png')
         .use(disk.cache({dir: './basemap'}))
@@ -16,11 +16,19 @@ strata.layer('basemap')
             scale: 1
         }))
 
+// Prefix the tile path with /tiles
 app.use(tilestrata.middleware({
     server: strata,
     prefix: '/tiles'
 }));
 
-app.listen('8080', function() {
-  console.log('Tilestrata listening on port 8080')
+// Send an example page at the root of the tileserver (/tiles)
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+
+// Listen on the provided port, or 8080 if none provided
+var port = process.argv[2] || '8080';
+app.listen(port, function() {
+  console.log('Tilestrata listening on port ' + port);
 });
