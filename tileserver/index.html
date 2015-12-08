@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width" charset="UTF-8">
-  <title>Simplest mapping app</title>
-  <link rel="stylesheet" href="http://maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.css" />
+  <title>Tile demo</title>
+  <link rel="stylesheet" href="//maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.css" />
   <style>
     body {
       padding:0;
@@ -20,16 +20,16 @@
 
   <div id="map"></div>
 
-  <script src="http://maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.js"></script>
+  <script src="//maps.metastudio.org/lib/leaflet/Leaflet-1.0.0-b2/leaflet.js"></script>
+  <script src="//maps.metastudio.org/lib/leaflet-hash/leaflet-hash.js"></script>
   <script>
-    /*
-     * Lesson 1
-     */
-
      // Initialize the map and set the view
     var map = L.map('map', {
       maxZoom: 21
     }).setView([19, 72.827], 12);
+
+    // Make map views linkable
+    var hash = new L.Hash(map);
 
     // add tile layer
     L.tileLayer('http://maps.metastudio.org/tiles/basemap/{z}/{x}/{y}/tile.png', {
