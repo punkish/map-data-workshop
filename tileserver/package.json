@@ -9,6 +9,7 @@
   "author": "John J Czaplewski <jczaplew@gmail.com>",
   "license": "CC0",
   "dependencies": {
+    "express": "^4.13.3",
     "tilestrata": "^2.0.1",
     "tilestrata-dependency": "^0.4.1",
     "tilestrata-disk": "^0.5.0",
