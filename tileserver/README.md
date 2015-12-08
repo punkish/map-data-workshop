@@ -17,6 +17,16 @@ node server.js
 
 Tiles will then be available at `http://localhost:8080/basemap/{z}/{x}/{y}/tile.png`, or whatever port is provided.
 
+## Use
+To use the tiles in Leaflet:
+````
+L.tileLayer('http://maps.metastudio.org/tiles/basemap/{z}/{x}/{y}/tile.png', {
+  maxZoom: 21,
+  attribution: 'Data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> | Style by <a href="https://github.com/mapbox/osm-bright">Mapbox</a>'
+});
+
+````
+
 
 #### To manually build the tile styles
 
