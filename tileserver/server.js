@@ -23,7 +23,7 @@ app.use(tilestrata.middleware({
 }));
 
 // Send an example page at the root of the tileserver (/tiles)
-app.get('/', function(req, res) {
+app.get('/tiles', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
