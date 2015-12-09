@@ -78,9 +78,7 @@
     socket.on('new point', function(point) {
       // Only add it if it wasn't ours
       if (!markers[point.id]) {
-        var marker = L.marker([point.lat, point.lng])
-          .bindPopup('A point was added at ' + point.lat + ', ' + point.lng + '!')
-          .addTo(map);
+        createMarker(point, point.id, true);
       }
     });
 
@@ -98,9 +96,7 @@
         db.get(point.id).then(function(coordinates) {
 
           // ...and add a marker to map
-          markers[point.id] = L.marker([coordinates.lat, coordinates.lng])
-            .bindPopup('My location is ' + coordinates.lat + ', ' + coordinates.lng + '<br> <button onclick=removeMarker("' + point.id + '")>Remove</button>')
-            .addTo(map);
+          createMarker(coordinates, point.id);
         });
 
       });
@@ -116,25 +112,31 @@
 
     // Add right/long click event to map
     map.on('contextmenu', function(event) {
-      var lat = event.latlng.lat.toFixed(6);
-      var lng = event.latlng.lng.toFixed(6);
-      var id = getID();
+      createMarker(event.latlng, null, true);
+    });
 
-      // Add a new marker to map
-      markers[id] = L.marker([event.latlng.lat, event.latlng.lng])
-        .bindPopup('You added a point at ' + lat + ', ' + lng + '!  <br> <button onclick=removeMarker("' + id + '")>Remove</button>')
+    function createMarker(latlng, id, addMe) {
+
+      var lat = parseFloat(latlng.lat).toFixed(6);
+      var lng = parseFloat(latlng.lng).toFixed(6);
+      var id = id || getID();
+
+      markers[id] = L.marker([lat, lng])
+        .bindPopup('This point is at ' + lat + ', ' + lng + '!  <br> <button onclick=removeMarker("' + id + '")>Remove</button>')
         .addTo(map)
         .openPopup();
 
-      // Save it to our local database
-      db.put({
-        _id: id,
-        lat: lat,
-        lng: lng,
-        dirty: true
-      });
+      if (addMe) {
+        // Save it to our local database
+        db.put({
+          _id: id,
+          lat: lat,
+          lng: lng,
+          dirty: true
+        });
+      }
 
-    });
+    }
 
     // Function to handle removing markers
     function removeMarker(id) {
