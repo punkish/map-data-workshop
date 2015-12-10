@@ -1,5 +1,4 @@
-
-
+/* A modified version forked from https://github.com/MazeMap/Leaflet.TileLayer.PouchDBCached */
 L.TileLayer.addInitHook(function() {
 
 	if (!this.options.useCache) {
@@ -20,7 +19,6 @@ L.TileLayer.addInitHook(function() {
 });
 
 L.TileLayer.prototype.options.useCache     = false;
-L.TileLayer.prototype.options.saveToCache  = true;
 L.TileLayer.prototype.options.useOnlyCache = false;
 L.TileLayer.prototype.options.cacheMaxAge  = 24*3600*1000;
 
@@ -67,13 +65,10 @@ L.TileLayer.include({
 				});
 				if (Date.now() > data.timestamp + this.options.cacheMaxAge && !this.options.useOnlyCache) {
 					// Tile is too old, try to refresh it
-					console.log('Tile is too old: ', tileUrl);
-
-					if (this.options.saveToCache) {
-						tile.onload = L.bind(this._saveTile, this, tile, tileUrl, data._revs_info[0].rev, done);
-					}
 					tile.crossOrigin = 'Anonymous';
 					tile.src = tileUrl;
+					tile.onload = L.bind(this._tileOnLoad, this, done, tile);
+
 					tile.onerror = function(ev) {
 						// If the tile is too old but couldn't be fetched from the network,
 						//   serve the one still in cache.
@@ -81,7 +76,6 @@ L.TileLayer.include({
 					}
 				} else {
 					// Serve tile from cached data
-					console.log('Tile is cached: ', tileUrl);
 					tile.onload = L.bind(this._tileOnLoad, this, done, tile);
 					tile.src = data.dataUrl;    // data.dataUrl is already a base64-encoded PNG image.
 				}
@@ -98,11 +92,8 @@ L.TileLayer.include({
 				} else {
 					// Online, not cached, request the tile normally
 // 					console.log('Requesting tile normally', tileUrl);
-					if (this.options.saveToCache) {
-						tile.onload = L.bind(this._saveTile, this, tile, tileUrl, null, done);
-					} else {
-						tile.onload = L.bind(this._tileOnLoad, this, done, tile);
-					}
+					tile.onload = L.bind(this._tileOnLoad, this, done, tile);
+
 					tile.crossOrigin = 'Anonymous';
 					tile.src = tileUrl;
 				}
@@ -110,40 +101,16 @@ L.TileLayer.include({
 		}.bind(this);
 	},
 
-	// Returns an event handler (closure over DB key), which runs
-	//   when the tile (which is an <img>) is ready.
-	// The handler will delete the document from pouchDB if an existing revision is passed.
-	//   This will keep just the latest valid copy of the image in the cache.
-	_saveTile: function(tile, tileUrl, existingRevision, done) {
-		if (this._canvas === null) return;
-		this._canvas.width  = tile.naturalWidth  || tile.width;
-		this._canvas.height = tile.naturalHeight || tile.height;
-
-		var context = this._canvas.getContext('2d');
-		context.drawImage(tile, 0, 0);
-
-		var dataUrl = this._canvas.toDataURL('image/png');
-		var doc = {dataUrl: dataUrl, timestamp: Date.now()};
-
-		if (existingRevision) {
-			this._db.remove(tileUrl, existingRevision);
-		}
-		console.log(doc, tileUrl)
-		this._db.put(doc, tileUrl, doc.timestamp);
-
-		if (done) { done(); }
-	},
-
-
-	// Seeds the cache given a bounding box (latLngBounds), and
-	//   the minimum and maximum zoom levels
-	// Use with care! This can spawn thousands of requests and
-	//   flood tileservers!
+	/*
+		 Seeds the cache given a bounding box (latLngBounds), and
+	   the minimum and maximum zoom levels
+	*/
 	seed: function(bbox, minZoom, maxZoom) {
-		if (minZoom > maxZoom) return;
-		if (!this._map) return;
+		if (minZoom > maxZoom || !this._map) {
+			return;
+		}
+
 		console.log(bbox, minZoom, maxZoom)
-		var queue = [];
 
 		var polygon = {
 			type: "Polygon",
@@ -167,12 +134,14 @@ L.TileLayer.include({
 
 	},
 
-	_seedTiles(queue) {
-		document.querySelector(".cache-loading").style.display = 'flex';
+	_seedTiles: function(tiles) {
+		this.fire('cache-load-start', true);
+
+	//	document.querySelector(".cache-loading").style.display = 'flex';
 		var baseURL = this._url;
 		var accountedFor = 0;
 
-		async.each(queue, function(item, callback) {
+		async.each(tiles, function(item, callback) {
 			var url = baseURL.replace('{x}', item[0]).replace('{y}', item[1]).replace('{z}', item[2]);
 
 			this._db.get(url, function(error, data) {
@@ -183,7 +152,7 @@ L.TileLayer.include({
 						this._db.put(doc, url, doc.timestamp);
 						accountedFor += 1;
 
-						console.log(accountedFor + ' of ' + queue.length);
+						console.log(accountedFor + ' of ' + tiles.length);
 						callback(null);
 					}.bind(this));
 				} else {
@@ -195,6 +164,10 @@ L.TileLayer.include({
 			document.querySelector(".cache-loading").style.display = 'none';
 		});
 
+	},
+
+	clearCache: function() {
+		new PouchDB('offline-tiles').destroy();
 	}
 
 });
