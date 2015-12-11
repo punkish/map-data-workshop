@@ -283,7 +283,7 @@ CSE.makeMap = function() {
 
 // CSE.bounds = CSE.map.getBounds();
 CSE.xhr = new XMLHttpRequest();
-CSE.xhr.open("get","http://localhost:8000/get_all_points",true);
+CSE.xhr.open("get",window.location.origin + "/get_all_points",true);
 CSE.xhr.send();
 
 CSE.xhr.onreadystatechange = function(){
