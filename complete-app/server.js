@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var pg = require("pg");
 var path = require('path');
-var credentials = require("./credentials");
+var credentials = require("./credentials.example.js");
 
 app.use(express.static('public'));
 
@@ -17,6 +17,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(path.join(__dirname, '/public/')));
+
 
 app.get('/', function (req, res, next) {
 
@@ -42,16 +43,21 @@ app.get('/', function (req, res, next) {
 
 })
 
+
+
+
 io.on('connection', function(socket){
+
     console.log('a user connected');
     
     socket.on('new connection', function(point) {
         console.log('I got a new connection');
+
         var sql = '';
         queryPg(
             sql, 
-            [point._id, point.descrip, point.lat, point.lng], 
-            function(err, result) {}
+            function(err, result) {
+            }
         );
         io.emit('many points', points);
     });
@@ -70,7 +76,7 @@ io.on('connection', function(socket){
 
 var queryPg = function(sql, params, callback) {
     pg.connect(
-        "postgres://" + creds.pg.user + "@" + creds.pg.host + ":" + creds.pg.port + "/" + creds.pg.db, 
+        "postgres://" + credentials.pg.user + "@" + credentials.pg.host + ":" + credentials.pg.port + "/" + credentials.pg.database, 
         function(err, client, done) {
             if (err) {
                 console.log("error", "error connecting - " + err);
@@ -94,4 +100,17 @@ var queryPg = function(sql, params, callback) {
 
 http.listen(3000, function(){
     console.log('listening on *:3000');
+});
+
+app.get('/get_all_points', function (req, res) {
+    var sql = 'SELECT id, descrip, lat, lng FROM points WHERE id IS NOT null';
+    queryPg(
+        sql,'',
+        function(err, result) {
+            // console.log(result)
+            res.json(result.rows);
+        }
+    );
+    
+
 });

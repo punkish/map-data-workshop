@@ -23,7 +23,7 @@ CSE.getID = function() {
 };
 
 // Initialize the local database
-CSE.db = new PouchDB('parleglite');
+CSE.db = new PouchDB('parleglite1');
 
 CSE.socket = io();
 
@@ -143,7 +143,7 @@ CSE.makeMap = function() {
     CSE.tiles = L.tileLayer('//14.139.123.7/tiles/basemap/{z}/{x}/{y}/tile.png', {
         useCache: true,
         saveToCache: false,
-        maxZoom: 18,
+        maxZoom: 13,
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
             '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Style by <a href="http://mapbox.com">Mapbox</a>'
     }).addTo(CSE.map);
@@ -192,8 +192,9 @@ CSE.makeMap = function() {
         watch: true,
         setView: true,
         //enableHighAccuracy: true,
-        maximumAge: 30000
+        maximumAge: 30000 // After every 30sec, recent loc is fetched and updates map setview
     });
+
 
     // Handle the user right clicking or long pressing on the map
     CSE.map.on("contextmenu", function(event) {
@@ -208,6 +209,7 @@ CSE.makeMap = function() {
         // Add a red (unsynced) marker to the map
         var thing = L.circleMarker(event.latlng, CSE.markers.unsynced)
             .addTo(CSE.map);
+
 
         // // Toggle the form on
         CSE.$("#form").className = "on";
@@ -268,3 +270,25 @@ CSE.makeMap = function() {
         });
     });
 };
+
+
+// CSE.bounds = CSE.map.getBounds();
+CSE.xhr = new XMLHttpRequest();
+CSE.xhr.open("get","http://localhost:3000/get_all_points",true);
+CSE.xhr.send();
+
+CSE.xhr.onreadystatechange = function(){
+    if(CSE.xhr.readyState == 4 && CSE.xhr.status == 200){
+        old_points = JSON.parse(CSE.xhr.responseText);
+        CSE.buildMarkers(old_points)
+    }
+}
+
+// Plotting markers from pg
+CSE.buildMarkers = function (existing_points){
+    existing_points.forEach(function(old_point) {
+        L.circleMarker([old_point.lat, old_point.lng], CSE.markers.unsynced)
+            .addTo(CSE.map);
+    });
+
+}
