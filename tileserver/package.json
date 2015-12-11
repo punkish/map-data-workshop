@@ -14,5 +14,11 @@
     "tilestrata-dependency": "^0.4.1",
     "tilestrata-disk": "^0.5.0",
     "tilestrata-mapnik": "^0.3.0"
+  },
+  "devDependencies": {
+    "async": "^1.5.0",
+    "pg": "^4.4.3",
+    "request": "^2.67.0",
+    "tile-cover": "^3.0.1"
   }
 }
