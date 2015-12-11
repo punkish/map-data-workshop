@@ -23,7 +23,7 @@ CSE.getID = function() {
 };
 
 // Initialize the local database
-CSE.db = new PouchDB('parleglite1');
+CSE.db = new PouchDB('parleglite');
 
 CSE.socket = io();
 
@@ -87,10 +87,10 @@ CSE.submitForm = function(event) {
 
     var payload = {
         _id: CSE.$("#id").value,
+        descrip: CSE.$("#desc").value,
         lat: CSE.$("#lat").value,
         lng: CSE.$("#lng").value,
         name: CSE.$("#name").value,
-        desc: CSE.$("#desc").value,
         synced: false
     }
     // Save data to the in-browser database
@@ -204,6 +204,7 @@ CSE.makeMap = function() {
         var lat = event.latlng.lat.toFixed(6),
             lng = event.latlng.lng.toFixed(6),
             id = CSE.getID();
+        var l = [id,"",lat,lng]
 
         CSE.$("#id").value = id;
         CSE.$("#lat").value = lat;
@@ -245,7 +246,12 @@ CSE.makeMap = function() {
                 // Pan back to the original location
                 CSE.map.panTo([center.lat, center.lng]);
             });
+
+            // CSE.socket.emit("new point", l)
+
+
     });
+
 
     // When we load the page, check if we have any existing points
     CSE.db.allDocs().then(function(result) {
@@ -266,8 +272,8 @@ CSE.makeMap = function() {
                 CSE.things[point._id]
                     .bindPopup(
                         '<b>Name:</b> ' + point.name + '<br>' +
-                        '<b>Description:</b> ' + point.desc + '<br>' +
-                        (point.synced ? '<b>Status:</b> synced' : '<br><button>Sync</button>')
+                        '<b>Description:</b> ' + point.desc + '<br>' 
+                        // + (point.synced ? '<b>Status:</b> synced' : '<br><button>Sync</button>')
                     );
             });
         });
@@ -277,21 +283,42 @@ CSE.makeMap = function() {
 
 // CSE.bounds = CSE.map.getBounds();
 CSE.xhr = new XMLHttpRequest();
-CSE.xhr.open("get","http://localhost:3000/get_all_points",true);
+CSE.xhr.open("get","http://localhost:8000/get_all_points",true);
 CSE.xhr.send();
 
 CSE.xhr.onreadystatechange = function(){
     if(CSE.xhr.readyState == 4 && CSE.xhr.status == 200){
         old_points = JSON.parse(CSE.xhr.responseText);
         CSE.buildMarkers(old_points)
+        CSE.update_clientdB(old_points)
     }
 }
+
+CSE.update_clientdB = function(db_points){
+    db_points.forEach(function(each_point){
+        each_point._id = each_point.id
+        delete each_point['id']
+        each_point['synced'] = CSE.markers.synced
+        d = CSE.db.get(each_point._id).then(function(doc) {
+            // console.log("Found in pouchdb")
+        }).catch(function (err) {
+        if(err.status == 404){
+            CSE.db.put(each_point).then(function(err,newdoc){
+                if(err){
+                    console.log(err)
+                }
+            });
+        }
+        });
+    });
+}
+
+
 
 // Plotting markers from pg
 CSE.buildMarkers = function (existing_points){
     existing_points.forEach(function(old_point) {
-        L.circleMarker([old_point.lat, old_point.lng], CSE.markers.unsynced)
+        L.circleMarker([old_point.lat, old_point.lng], CSE.markers.synced)
             .addTo(CSE.map);
     });
-
 }
