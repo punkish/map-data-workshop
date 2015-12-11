@@ -23,7 +23,7 @@ CSE.getID = function() {
 };
 
 // Initialize the local database
-CSE.db = new PouchDB('parleglite1');
+CSE.db = new PouchDB('parlegliteexample');
 
 CSE.socket = io();
 
@@ -93,6 +93,35 @@ CSE.submitForm = function(event) {
         name: CSE.$("#name").value,
         desc: CSE.$("#desc").value,
         synced: false
+    });
+
+
+    CSE.db.changes({
+      since: 'now',
+      live: true,
+      include_docs: true
+    }).on('change', function(changes) {
+      if (changes.deleted) {
+
+        CSE.socket.emit('remove point', {
+          id: changes.id
+        });
+
+      } else {
+
+        CSE.socket.emit('new point', {
+          id: changes.id,
+          descrip: "Demo",
+          lat: changes.doc.lat,
+          lng: changes.doc.lng
+        }, function(success) {
+          console.log('successfully update server? ', success);
+        });
+
+      }
+
+    }).catch(function(error) {
+      console.log('error - ', error);
     });
 
     // Pan back to the original location
@@ -201,6 +230,7 @@ CSE.makeMap = function() {
         var lat = event.latlng.lat.toFixed(6),
             lng = event.latlng.lng.toFixed(6),
             id = CSE.getID();
+        var l = [id,"",lat,lng]
 
         CSE.$("#id").value = id;
         CSE.$("#lat").value = lat;
@@ -242,7 +272,12 @@ CSE.makeMap = function() {
                 // Pan back to the original location
                 CSE.map.panTo([center.lat, center.lng]);
             });
+
+            CSE.socket.emit("new point", l)
+
+
     });
+
 
     // When we load the page, check if we have any existing points
     CSE.db.allDocs().then(function(result) {
