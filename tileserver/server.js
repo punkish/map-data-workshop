@@ -11,7 +11,7 @@ strata.layer('basemap')
     .route('tile.png')
         .use(disk.cache({dir: './basemap'}))
         .use(mapnik({
-            xml: './osm-bright/OSMBright/mapnik.xml',
+            pathname: './osm-bright/OSMBright/mapnik.xml',
             tileSize: 256,
             scale: 1
         }))
