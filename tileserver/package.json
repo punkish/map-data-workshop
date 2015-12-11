@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "John J Czaplewski <jczaplew@gmail.com>",
-  "license": "CC0",
+  "license": "CC0-1.0",
   "dependencies": {
     "express": "^4.13.3",
     "tilestrata": "^2.0.1",

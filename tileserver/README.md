@@ -27,6 +27,12 @@ L.tileLayer('http://maps.metastudio.org/tiles/basemap/{z}/{x}/{y}/tile.png', {
 
 ````
 
+## Seeding the cache
+1. `cp setup/credentials.example.js setup.credentials.js`
+2. Edit `setup/credentials.js` with your information
+3. Make sure the zoom level and template URL parameters at the top of `setup/seedCache.js` are accurate
+4. Run `node setup/seedCache.js`. It will take a few minutes, and for all of India will result in a cache size of about 150MB.
+
 
 #### To manually build the tile styles
 
