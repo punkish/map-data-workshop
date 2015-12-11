@@ -85,16 +85,19 @@ CSE.submitForm = function(event) {
     event.preventDefault();
     CSE.$("#form").className = "off";
 
-    // Save data to the in-browser database
-    CSE.db.put({
+    var payload = {
         _id: CSE.$("#id").value,
         lat: CSE.$("#lat").value,
         lng: CSE.$("#lng").value,
         name: CSE.$("#name").value,
         desc: CSE.$("#desc").value,
         synced: false
-    });
+    }
+    // Save data to the in-browser database
+    CSE.db.put(payload);
 
+    CSE.socket.emit('new point', payload);
+    
     // Pan back to the original location
     CSE.map.panTo([CSE.currentLatLng.lat, CSE.currentLatLng.lng]);
 };
@@ -168,14 +171,14 @@ CSE.makeMap = function() {
 
         // // Calculate radius of circle given location accuracy
         // var radius = event.accuracy / 2;
-        // 
+        //
         // // Add a circle halo for the marker to represent accuracy error
         // L.circle(event.latlng, radius).addTo(CSE.map);
-        // 
+        //
         // CSE.curr_loc.bindPopup(
         //     "You are within " + radius + " meters from this point"
         // );
-        // 
+        //
         // // Close the popup after 3 seconds
         // setTimeout(function() {
         //     curr_loc.closePopup();
