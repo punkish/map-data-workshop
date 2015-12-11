@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var pg = require("pg");
+var path = require('path');
 var credentials = require("./credentials");
 
 app.use(express.static('public'));
