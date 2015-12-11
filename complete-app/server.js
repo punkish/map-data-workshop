@@ -56,42 +56,11 @@ app.get('/get_all_points', function (req, res) {
     );
 });
 
-
-io.on('connection', function(socket){
-
-    console.log('a user connected');
-
-    socket.on('new connection', function(point) {
-        console.log('I got a new connection');
-
-        var sql = '';
-        queryPg(
-            sql,
-            function(err, result) {
-            }
-        );
-        io.emit('many points', points);
-    });
-
-    socket.on('new point', function(point) {
-        console.log('I got a new point that has ' + point.desc);
-        var sql = 'INSERT INTO points (id, descrip, lat, lng) VALUES ($1, $2, $3, $4)';
-        queryPg(
-            sql,
-            [point._id, point.desc, point.lat, point.lng],
-            function(err, result) {
-              if (err) {
-                console.log(err);
-              }
-              io.emit('new point', point);
-            });
-    });
-});
-
 var queryPg = function(sql, params, callback) {
     pg.connect(
         "postgres://" + credentials.pg.user + "@" + credentials.pg.host + ":" + credentials.pg.port + "/" + credentials.pg.database,
         function(err, client, done) {
+            console.log("queryPg")
             if (err) {
                 console.log("error", "error connecting - " + err);
                 callback(err);
@@ -111,6 +80,42 @@ var queryPg = function(sql, params, callback) {
             }
         }.bind(this));
 };
+
+
+io.on('connection', function(socket){
+
+    console.log('a user connected');
+
+    socket.on('new connection', function(point) {
+        console.log('I got a new connection');
+
+        var sql = '';
+        queryPg(
+            sql,
+            function(err, result) {
+            }
+        );
+        io.emit('many points', points);
+    });
+
+    socket.on('new point', function(point) {
+        console.log('I got a new point that has ' + point.descrip);
+        var sql = 'INSERT INTO points (id, name, descrip, lat, lng) VALUES ($1, $2, $3, $4, $5) returning id';
+        
+        queryPg(
+            sql,
+            [point._id, point.name, point.descrip, point.lat, point.lng],
+            function(err, result) {
+              if (err) {
+                console.log(err);
+              }
+              else{
+                io.emit('new point', point);
+              }
+            });
+    });
+});
+
 
 http.listen(8000, function(){
     console.log('listening on *:8000');
