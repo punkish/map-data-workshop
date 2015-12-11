@@ -133,6 +133,10 @@ CSE.removeMarker = function(marker) {
     // });
 };
 
+CSE.sync = function() {
+    // sync to backend database on demand
+};
+
 // Create the map on load
 CSE.makeMap = function() {
 
@@ -262,8 +266,10 @@ CSE.makeMap = function() {
                     .bindPopup(
                         '<b>Name:</b> ' + point.name + '<br>' +
                         '<b>Description:</b> ' + point.desc + '<br>' +
-                        (point.synced ? '<b>Status:</b> synced' : '<br><button>Sync</button>')
+                        (point.synced ? '<b>Status:</b> synced' : '<br><button class="sync">Sync</button>')
                     );
+                    
+                    //CSE.$("sync").addEventListener("click", CSE.sync, capture)
             });
         });
     });
