@@ -1,14 +1,7 @@
-# Tileserver demo
+# OSM Tiles with Tilestrata
 
-Download an OpenStreetMap extract of Mumbai, put it into a PostGIS database, customize the OSM-Bright style
+Download an OpenStreetMap extract, put it into a PostGIS database, customize the OSM-Bright style
 for our needs, and run a tile server that caches tiles to disk with Tilestrata.
-
-## Setup
-````
-npm install
-````
-
-Also see the manual style build instructions
 
 ## Running
 ````
@@ -27,27 +20,21 @@ L.tileLayer('http://maps.metastudio.org/tiles/basemap/{z}/{x}/{y}/tile.png', {
 
 ````
 
-## Seeding the cache
-1. `cp setup/credentials.example.js setup.credentials.js`
-2. Edit `setup/credentials.js` with your information
-3. Make sure the zoom level and template URL parameters at the top of `setup/seedCache.js` are accurate
-4. Run `node setup/seedCache.js`. It will take a few minutes, and for all of India will result in a cache size of about 150MB.
+## Setup
 
-
-#### To manually build the tile styles
-
-*Assumes you have Postgresql, osm2pgsql, git, and curl installed. Will also download and import the
+*Assumes you have Postgresql with PostGIS, osm2pgsql, git, and curl installed. Will also download and import the
 Mumbai metro extract.*
 
-First download the Mumbai metro extract, shapefiles that we need, and install `carto` globally:
+First download the Mumbai metro extract (or any other OSM extract in PBF), shapefiles that we need, and install `carto` globally:
+
 ````
+npm install
 ./setup.sh
 sudo npm install -g carto
 cp osm-bright/configure.py.sample osm-bright/configure.py
 ````
 
-
-Next, fill out `osm-bright/configure.py`
+Next, edit `osm-bright/configure.py`:
   - path (`getcwd()`)
   - host (`localhost`)
   - port (`5432`)
@@ -71,3 +58,12 @@ carto project_mod.mml > mapnik.xml
 ````
 
 You should now be able to run `node server.js`.
+
+
+## Seeding the cache
+Tiles can be slow to generate for the first time, so it is often prudent to warm the tile cache on disk.
+
+1. `cp setup/credentials.example.js setup.credentials.js`
+2. Edit `setup/credentials.js` with your information
+3. Make sure the zoom level and template URL parameters at the top of `setup/seedCache.js` are accurate
+4. Run `node setup/seedCache.js`. It will take a few minutes, and for all of India will result in a cache size of about 150MB.
