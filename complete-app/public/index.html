@@ -61,9 +61,9 @@
             
                 // Only add it if it wasn't ours
                 if (!CSE.markers[point.id]) {
-                    var marker = L.marker([point.lat, point.lng])
+                    var marker = L.circleMarker([point.lat, point.lng])
                         .bindPopup('A point was added at ' + point.lat + ', ' + point.lng + '!')
-                        .addTo(map);
+                        .addTo(CSE.map);
                 }
             });
             
