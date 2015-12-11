@@ -85,45 +85,19 @@ CSE.submitForm = function(event) {
     event.preventDefault();
     CSE.$("#form").className = "off";
 
-    // Save data to the in-browser database
-    CSE.db.put({
+    var payload = {
         _id: CSE.$("#id").value,
+        desc: CSE.$("#desc").value,
         lat: CSE.$("#lat").value,
         lng: CSE.$("#lng").value,
         name: CSE.$("#name").value,
-        desc: CSE.$("#desc").value,
         synced: false
-    });
+    }
+    // Save data to the in-browser database
+    CSE.db.put(payload);
 
-
-    CSE.db.changes({
-      since: 'now',
-      live: true,
-      include_docs: true
-    }).on('change', function(changes) {
-      if (changes.deleted) {
-
-        CSE.socket.emit('remove point', {
-          id: changes.id
-        });
-
-      } else {
-
-        CSE.socket.emit('new point', {
-          id: changes.id,
-          descrip: "Demo",
-          lat: changes.doc.lat,
-          lng: changes.doc.lng
-        }, function(success) {
-          console.log('successfully update server? ', success);
-        });
-
-      }
-
-    }).catch(function(error) {
-      console.log('error - ', error);
-    });
-
+    CSE.socket.emit('new point', payload);
+    
     // Pan back to the original location
     CSE.map.panTo([CSE.currentLatLng.lat, CSE.currentLatLng.lng]);
 };
@@ -197,14 +171,14 @@ CSE.makeMap = function() {
 
         // // Calculate radius of circle given location accuracy
         // var radius = event.accuracy / 2;
-        // 
+        //
         // // Add a circle halo for the marker to represent accuracy error
         // L.circle(event.latlng, radius).addTo(CSE.map);
-        // 
+        //
         // CSE.curr_loc.bindPopup(
         //     "You are within " + radius + " meters from this point"
         // );
-        // 
+        //
         // // Close the popup after 3 seconds
         // setTimeout(function() {
         //     curr_loc.closePopup();
@@ -273,7 +247,7 @@ CSE.makeMap = function() {
                 CSE.map.panTo([center.lat, center.lng]);
             });
 
-            CSE.socket.emit("new point", l)
+            // CSE.socket.emit("new point", l)
 
 
     });
