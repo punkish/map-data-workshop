@@ -1,4 +1,5 @@
-# Mapping Data and Knowledge for Citizen Science
+# Mapping Data and Knowledge
+## Citizen Science in Resource-Constrained Environments
 
 ## Contents
 + [Goal](#goal)
