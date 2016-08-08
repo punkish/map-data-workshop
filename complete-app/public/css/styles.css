@@ -1,0 +1,71 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+}
+.on {
+    top: 0;
+}
+.off {
+    top: -1000px;
+}
+#form {
+    padding: 10px;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    height: 50%;
+    z-index: 9999;
+}
+.cache-map {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 999;
+}
+.cache-map-button {
+    font-weight: bold;
+}
+.cache-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 50px;
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    left: 15%;
+    top: 15%;
+    border-radius: 6px;
+    font-size: 25px;
+    margin: 0 auto;
+    z-index: 9999;
+    display: none;
+}
+#cache-map {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    text-decoration: none;
+    background-color: white;
+    z-index: 1000;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: x-large;
+}
